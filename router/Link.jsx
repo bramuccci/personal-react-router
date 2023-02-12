@@ -8,15 +8,10 @@ const styles = {
 }
 
 export function Link({ to, children }) {
-    const { setCurrentPath } = useContext(PathContext)
-
-    const onNavigation = () => {
-        window.history.pushState({}, '', to)
-        setCurrentPath(to)
-    }
+    const { navigate } = useContext(PathContext)
 
     return (
-        <a style={styles} onClick={onNavigation}>
+        <a style={styles} onClick={() => navigate(to)}>
             {children}
         </a>
     )
