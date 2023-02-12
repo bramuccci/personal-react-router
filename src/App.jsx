@@ -7,6 +7,7 @@ export function App() {
         <Router>
             <Route element={<HomePage />} path="/" />
             <Route element={<BlogPage />} path="/blog" />
+            <Route element={<NotFound />} path="*" />
         </Router>
     )
 }
@@ -14,8 +15,10 @@ export function App() {
 function HomePage() {
     return (
         <>
-            <p>You are in the home</p>
+            <h1>You are in the home</h1>
             <Link to="/blog">Go to blog</Link>
+            <p></p>
+            <Link to="/random-link">Go to non-existent page</Link>
         </>
     )
 }
@@ -23,8 +26,17 @@ function HomePage() {
 function BlogPage() {
     return (
         <>
-            <p>You are in the blog</p>
+            <h1>You are in the blog</h1>
             <Link to="/">Back to home</Link>
+        </>
+    )
+}
+
+function NotFound() {
+    return (
+        <>
+            <h1>Page not found</h1>
+            <Link to="/">Go to home</Link>
         </>
     )
 }
