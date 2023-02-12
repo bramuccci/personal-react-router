@@ -1,6 +1,12 @@
 import { useContext } from 'react'
 import { PathContext } from './Router'
 
+const styles = {
+    textDecoration: 'underline',
+    color: 'blue',
+    cursor: 'pointer',
+}
+
 export function Link({ to, children }) {
     const { setCurrentPath } = useContext(PathContext)
 
@@ -9,5 +15,9 @@ export function Link({ to, children }) {
         setCurrentPath(to)
     }
 
-    return <a onClick={onNavigation}>{children}</a>
+    return (
+        <a style={styles} onClick={onNavigation}>
+            {children}
+        </a>
+    )
 }
