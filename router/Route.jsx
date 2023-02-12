@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { PathContext } from './Router'
+import { PathContext } from './Context'
 
 export function Route({ path, element }) {
     const { currentPath, routes } = useContext(PathContext)

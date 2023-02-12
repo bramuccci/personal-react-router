@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { PathContext } from './Context'
 
-export function Router({ children }) {
-    const [currentPath, setCurrentPath] = useState(window.location.pathname)
+export function HashRouter({ children }) {
+    const windowPath = window.location.pathname.replace(/^\/#/, '')
+    const [currentPath, setCurrentPath] = useState(windowPath)
     const routes = []
 
     const navigate = to => {
-        window.history.pushState({}, '', to)
+        window.history.pushState({}, '', `/#${to}`)
         setCurrentPath(to)
     }
 

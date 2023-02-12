@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { PathContext } from './Router'
+import { PathContext } from './Context'
 
 const styles = {
     textDecoration: 'underline',
